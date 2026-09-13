@@ -19,6 +19,16 @@
       "source": "builtin",
       "testable": false
     },
+    "com.unity.ugui@2.0.0": {
+      "name": "com.unity.ugui",
+      "displayName": "Unity UI",
+      "resolvedPath": "C:\\Github_branch\\Hayashigumi\\Library\\PackageCache\\com.unity.ugui@f3fac7af1578",
+      "fingerprint": "f3fac7af157843ea3b769ef7c6aa56de52618aeb",
+      "editorCompatibility": "2019.2.0a1",
+      "version": "2.0.0",
+      "source": "builtin",
+      "testable": false
+    },
     "com.unity.modules.accessibility@1.0.0": {
       "name": "com.unity.modules.accessibility",
       "displayName": "Accessibility",

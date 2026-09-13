@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using Text = UnityEngine.UI.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 /// <summary>
 /// 地球（baseplate）を固定した状態で、指定した日時における
@@ -48,6 +50,9 @@ public class CelestialPositionCalculator : MonoBehaviour
     [Tooltip("計算した位置に自動でPositionを反映させたい月オブジェクト。未設定でも計算自体は行われます")]
     public Transform moonObject;
 
+    [Header("表示先のUI Text")]
+    public UnityEngine.UI.Text directionText;
+
     // ---- 計算結果（読み取り専用） ----
     public Vector3 SunPosition { get; private set; }
     public Vector3 MoonPosition { get; private set; }
@@ -74,6 +79,26 @@ public class CelestialPositionCalculator : MonoBehaviour
         }
 
         UpdatePositions(utc);
+        /////////////////////////////////////////
+        /////////////////////////////////////////
+        /////////////////////////////////////////
+
+        if (directionText != null)
+        {
+            if (useRealTimeUtc)
+            {
+                DateTime TodayNow;
+                TodayNow = DateTime.Now;
+                directionText.text = $"{TodayNow.Year}年{TodayNow.Month}月{TodayNow.Day}日 / {DateTime.Now.ToLongTimeString()}";
+
+            }
+            else
+            {
+                directionText.text = $"{year}年{month}月{day}日 / {hour}:{minute}:{second}";
+            }
+                
+         
+        }
     }
 
     /// <summary>指定したUTC日時から太陽・月の位置を計算して更新する</summary>
